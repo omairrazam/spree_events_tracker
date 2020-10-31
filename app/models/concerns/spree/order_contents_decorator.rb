@@ -1,5 +1,5 @@
 module Spree
-  module OrderContentsWithTracker
+  module OrderContentsDecorator
 
     # Override: since order's line_items were overridden
     def update_cart(params)
@@ -61,4 +61,4 @@ module Spree
   end
 end
 
-Spree::OrderContents.send(:prepend, Spree::OrderContentsWithTracker)
+Spree::OrderContents.send(:prepend, Spree::OrderContentsDecorator)
