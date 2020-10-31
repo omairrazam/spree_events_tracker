@@ -1,5 +1,5 @@
 module Spree
-  module CheckoutControllerDecorator do
+  module CheckoutControllerDecorator
 
   include Spree::CheckoutEventTracker
 
