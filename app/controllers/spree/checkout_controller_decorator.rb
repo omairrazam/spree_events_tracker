@@ -3,9 +3,11 @@ module Spree
 
   include Spree::CheckoutEventTracker
 
-  after_action :track_order_state_change, only: :edit
-  after_action :track_order_completion, only: :update, if: :confirm?
-
+  
+  def self.prepended(base)
+    base.after_action :track_order_state_change, only: :edit
+    base.after_action :track_order_completion, only: :update, if: :confirm?
+  end
   private
     def confirm?
       previous_state == 'confirm'
