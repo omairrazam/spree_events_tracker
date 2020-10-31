@@ -1,4 +1,5 @@
-Spree::CheckoutController.class_eval do
+module Spree
+  module CheckoutControllerDecorator do
 
   include Spree::CheckoutEventTracker
 
@@ -19,4 +20,6 @@ Spree::CheckoutController.class_eval do
         track_activity(activity: :change_order_state, previous_state: previous_state, next_state: next_state)
       end
     end
+  end
 end
+::Spree::CheckoutController.prepend Spree::CheckoutControllerDecorator
