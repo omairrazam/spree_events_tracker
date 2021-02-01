@@ -1,4 +1,5 @@
-Spree::TaxonsController.class_eval do
+module Spree::TaxonsControllerDecorator
   include Spree::PageTracker
-  track_actions [:show]
+  track_actions
 end
+::Spree::TaxonsController.prepend Spree::TaxonsControllerDecorator

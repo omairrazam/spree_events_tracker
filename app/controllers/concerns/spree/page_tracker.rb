@@ -4,7 +4,9 @@ module Spree
 
     class_methods do
       def track_actions(actions = [])
-        after_action :track_event, only: actions
+        def self.prepended(base)
+          base.after_action :track_event, only: [:show, :index]
+        end  
       end
     end
 

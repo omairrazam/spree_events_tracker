@@ -1,4 +1,5 @@
-Spree::ProductsController.class_eval do
+module Spree::ProductsControllerDecorator
   include Spree::PageTracker
-  track_actions [:show, :index]
+  track_actions
 end
+::Spree::ProductsController.prepend Spree::ProductsControllerDecorator
